@@ -1,0 +1,29 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate?: Date;
+  image?: string;
+  backHref: string;
+  backLabel: string;
+}
+
+const { title, description, pubDate, image, backHref, backLabel } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image}>
+  <article>
+    <a href={backHref} class="text-sm">&larr; {backLabel}</a>
+    <h1 class="mt-4 text-3xl font-semibold">{title}</h1>
+    <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+      {pubDate && <FormattedDate date={pubDate} />}
+      <slot name="meta" />
+    </div>
+    <div class="prose-plain mt-8">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

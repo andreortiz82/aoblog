@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from "astro:content";
+import PostLayout from "../../layouts/PostLayout.astro";
+
+export async function getStaticPaths() {
+  const shorts = await getCollection("shorts", ({ data }) => !data.draft);
+  return shorts.map((short) => ({
+    params: { slug: short.id },
+    props: short,
+  }));
+}
+
+const short = Astro.props;
+const { Content } = await render(short);
+const { title, summary, genre, status, format, pubDate, cover } = short.data;
+---
+
+<PostLayout
+  title={title}
+  description={summary}
+  pubDate={pubDate}
+  image={cover}
+  backHref="/shorts"
+  backLabel="Shorts"
+>
+  <Fragment slot="meta">
+    <span class="meta-tag">{status === "published" ? "Published" : "In Development"}</span>
+    {format === "serial" && <span class="meta-tag">Serial</span>}
+    {genre.map((g) => <span class="meta-tag">{g}</span>)}
+  </Fragment>
+  {cover && <img src={cover} alt={`Cover art for ${title}`} class="rounded mb-8" />}
+  <Content />
+</PostLayout>

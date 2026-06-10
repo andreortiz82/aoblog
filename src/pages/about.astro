@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About — aoblog";
+const description = "What aoblog is, who's writing it, and why it's being built in the open.";
+---
+
+<BaseLayout title={title} description={description}>
+  <h1 class="text-3xl font-semibold">About</h1>
+
+  <div class="prose-plain mt-8">
+    <p>
+      aoblog is a build journal: a running record of designing a design
+      system, a brand, and products with AI — plus a side channel of
+      AI-assisted short fiction.
+    </p>
+
+    <p>
+      I'm Andre Ortiz. I've spent twenty years in product design — vision,
+      systems, and shipped work — and over the last few years a growing share
+      of that work has involved AI agents as genuine collaborators, not just
+      autocomplete. You can find my full background and portfolio at
+      <a href="https://andreortiz.com">andreortiz.com</a>.
+    </p>
+
+    <p>
+      This site is organized around three threads — building a design system
+      with AI, building a brand with AI, and building products with AI —
+      plus <a href="/shorts">Shorts</a>, a collection of AI-assisted short
+      fiction.
+    </p>
+
+    <p>
+      It's built in the open: posts may be rough, plans may change mid-stream,
+      and the <a href="https://github.com/andreortiz82/aoblog">source</a> and
+      <a href="https://github.com/andreortiz82/aoblog/blob/main/PLAN.md">build
+      plan</a> are public. That's the point — this is documentation of a
+      process, not a polished case study after the fact.
+    </p>
+  </div>
+</BaseLayout>

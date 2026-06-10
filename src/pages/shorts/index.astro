@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+
+const statusOrder = { published: 0, "in-development": 1 };
+const shorts = (await getCollection("shorts", ({ data }) => !data.draft)).sort(
+  (a, b) => statusOrder[a.data.status] - statusOrder[b.data.status],
+);
+---
+
+<BaseLayout title="Shorts — aoblog" description={SITE_DESCRIPTION}>
+  <h1 class="text-3xl font-semibold">Shorts</h1>
+  <p class="mt-2 text-ink-2">AI-assisted short fiction — sci-fi, mostly bleak, occasionally hopeful.</p>
+
+  <ul class="mt-8 space-y-8">
+    {
+      shorts.map((short) => (
+        <li class="flex gap-4">
+          {short.data.cover && (
+            <a href={`/shorts/${short.id}/`} class="shrink-0">
+              <img
+                src={short.data.cover}
+                alt=""
+                class="w-20 h-20 object-cover rounded border border-line"
+              />
+            </a>
+          )}
+          <div>
+            <a href={`/shorts/${short.id}/`} class="text-lg font-medium">{short.data.title}</a>
+            <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+              <span class="meta-tag">
+                {short.data.status === "published" ? "Published" : "In Development"}
+              </span>
+              {short.data.format === "serial" && <span class="meta-tag">Serial</span>}
+            </div>
+            <p class="mt-2 text-ink-2">{short.data.summary}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

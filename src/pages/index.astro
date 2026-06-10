@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1 class="text-3xl font-semibold">aoblog</h1>
+  <p class="mt-2 text-ink-2">A build journal — design systems, brand, and products, built with AI.</p>
+
+  <p class="mt-6">
+    I'm Andre Ortiz, a product designer documenting how I use AI to design and
+    build things — starting with this site. Three threads: design systems,
+    brand, and products. Plus a side channel of AI-assisted short fiction.
+  </p>
+
+  <section class="mt-12">
+    <h2 class="text-xl font-semibold">Latest from the blog</h2>
+    <ul class="mt-4 space-y-6">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`} class="font-medium">{post.data.title}</a>
+            <div class="mt-1 flex items-center gap-2 text-sm text-ink-3">
+              <FormattedDate date={post.data.pubDate} />
+              <span class="meta-tag">{post.data.category}</span>
+            </div>
+            <p class="mt-1 text-ink-2">{post.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-4"><a href="/blog">All posts &rarr;</a></p>
+  </section>
+
+  <section class="mt-12">
+    <h2 class="text-xl font-semibold">Shorts</h2>
+    <p class="mt-2 text-ink-2">AI-assisted short fiction — sci-fi, mostly bleak, occasionally hopeful.</p>
+    <p class="mt-4"><a href="/shorts">Read the shorts &rarr;</a></p>
+  </section>
+
+  <section class="mt-12">
+    <p><a href="/about">About this project &rarr;</a></p>
+  </section>
+</BaseLayout>
