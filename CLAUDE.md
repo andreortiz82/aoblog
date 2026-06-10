@@ -113,6 +113,15 @@ in-development entries render their synopsis instead of full prose.
 
 ---
 
+## Content Conventions
+
+**Blog posts should be brief: 3–5 paragraphs.** Include a concrete example
+or quote where it helps (e.g. a log entry, a code snippet, a before/after)
+rather than padding with extra sections. Cut to the point — a post is a
+journal entry, not a tutorial.
+
+---
+
 ## Styling
 
 All tokens, fonts, and component classes (`.nav-link`, `.meta-tag`,
