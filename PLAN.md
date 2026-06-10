@@ -75,3 +75,11 @@ schemas, content outlines, design baseline).
   homepage wordmark is `ao*blog*` using the emphasis system). `npm run build`
   passed clean for all 11 pages on the first try. Wrote a third post on what
   a `DESIGN.md` buys you, drawing on this exact port as the example.
+
+- 2026-06-10 — Manual tweaks landed: header dropped its bottom border and
+  grew the logo to `h-10`, the wordmark text next to it is commented out
+  (mark-only), and the homepage hero is now `Creative *Blog*`. Wrote
+  `DESIGN.md` at the project root to document the resulting system —
+  tokens, type roles, emphasis system, logo usage, and an explicit
+  "Differences from `ao`" section — as the authoritative reference for
+  future visual changes.

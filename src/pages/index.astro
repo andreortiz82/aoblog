@@ -10,8 +10,12 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <h1 class="font-serif text-4xl md:text-5xl tracking-tight">ao<em>blog</em></h1>
-  <p class="mt-2 text-ink-2">A build journal — design systems, brand, and products, built with AI.</p>
+  <h1 class="font-serif text-4xl md:text-5xl tracking-tight">
+    Creative<em> Blog</em>
+  </h1>
+  <p class="mt-2 text-ink-2">
+    A build journal — design systems, brand, and products, built with AI.
+  </p>
 
   <p class="mt-6">
     I'm Andre Ortiz, a product designer documenting how I use AI to design and
@@ -25,7 +29,9 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
       {
         posts.map((post) => (
           <li>
-            <a href={`/blog/${post.id}/`} class="font-medium">{post.data.title}</a>
+            <a href={`/blog/${post.id}/`} class="font-medium">
+              {post.data.title}
+            </a>
             <div class="mt-1 flex items-center gap-2 text-sm text-ink-3">
               <FormattedDate date={post.data.pubDate} />
               <span class="meta-tag">{post.data.category}</span>
@@ -40,7 +46,9 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
 
   <section class="mt-12">
     <h2 class="font-serif italic text-xl font-medium">Shorts</h2>
-    <p class="mt-2 text-ink-2">AI-assisted short fiction — sci-fi, mostly bleak, occasionally hopeful.</p>
+    <p class="mt-2 text-ink-2">
+      AI-assisted short fiction — sci-fi, mostly bleak, occasionally hopeful.
+    </p>
     <p class="mt-4"><a href="/shorts">Read the shorts &rarr;</a></p>
   </section>
 
