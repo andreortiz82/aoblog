@@ -19,7 +19,7 @@ schemas, content outlines, design baseline).
 - [x] 8. Write 6 page files (index, about, blog index/slug, shorts index/slug)
 - [x] 9. `npx astro sync` → `npm run dev` manual check → `npm run build` → `npm run preview`
 - [x] 10. Write second post (`planning-with-ai`) drawing on this file's Log → rebuild
-- [ ] 11. `git init` + commit, then `gh repo create andreortiz82/aoblog --public --source=. --push`
+- [x] 11. `git init` + commit, then `gh repo create andreortiz82/aoblog --public --source=. --push`
 - [ ] 12. Vercel import (manual, user step — CLI not authenticated)
 
 ## Log
@@ -43,3 +43,8 @@ schemas, content outlines, design baseline).
   `@import`), nav active-state underline wins the cascade (`.underline` is
   defined after `.no-underline` in Tailwind's generated output), and the
   Free Flight migration has no leftover heading or source-only sections.
+
+- 2026-06-09 — Pushed to GitHub: https://github.com/andreortiz82/aoblog
+  (public, branch `main`). Remaining: import the repo on Vercel (manual —
+  CLI is installed but not authenticated), then update `astro.config.mjs`'s
+  `site:` field once a domain is assigned and push again.
