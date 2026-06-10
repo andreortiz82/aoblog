@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE } from "../consts";
+import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
@@ -14,11 +15,14 @@ const links = [
 
 <header class="border-b border-line">
   <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-semibold no-underline">{SITE_TITLE}</a>
-    <nav class="flex items-center gap-6 text-sm">
+    <a href="/" class="flex items-center gap-2 no-underline">
+      <Logo class="h-5 w-auto text-ink" />
+      <span class="font-serif italic text-lg">{SITE_TITLE}</span>
+    </a>
+    <nav class="flex items-center gap-6">
       {
         links.map(({ href, label }) => (
-          <a href={href} class:list={["no-underline", { underline: isActive(href) }]}>
+          <a href={href} class:list={["nav-link", { active: isActive(href) }]}>
             {label}
           </a>
         ))

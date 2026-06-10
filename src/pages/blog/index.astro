@@ -10,7 +10,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
 ---
 
 <BaseLayout title="Blog — aoblog" description={SITE_DESCRIPTION}>
-  <h1 class="text-3xl font-semibold">Blog</h1>
+  <h1 class="font-serif text-3xl">Blog</h1>
 
   <ul class="mt-8 space-y-8">
     {

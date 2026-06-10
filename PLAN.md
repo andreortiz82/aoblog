@@ -20,7 +20,16 @@ schemas, content outlines, design baseline).
 - [x] 9. `npx astro sync` → `npm run dev` manual check → `npm run build` → `npm run preview`
 - [x] 10. Write second post (`planning-with-ai`) drawing on this file's Log → rebuild
 - [x] 11. `git init` + commit, then `gh repo create andreortiz82/aoblog --public --source=. --push`
-- [ ] 12. Vercel import (manual, user step — CLI not authenticated)
+- [x] 12. Vercel import (manual, user step — CLI not authenticated)
+
+## Phase 2 — Adopt `ao`'s DESIGN.md system
+
+- [x] 13. Add `aologo.svg` mark to the header (new `Logo.astro` component)
+- [x] 14. Port relevant parts of `ao/DESIGN.md` into `global.css`: Fraunces / Instrument Sans / JetBrains Mono, ink/paper/accent tokens, italic-accent emphasis system, mono nav-link style, serif italic prose headings
+- [x] 15. Apply new typography to header, footer, and page headings (index, about, blog/shorts indexes, post layout)
+- [x] 16. Rebuild + verify
+- [x] 17. Write a post on the benefits of keeping a `DESIGN.md`
+- [x] 18. Commit + push
 
 ## Log
 
@@ -48,3 +57,21 @@ schemas, content outlines, design baseline).
   (public, branch `main`). Remaining: import the repo on Vercel (manual —
   CLI is installed but not authenticated), then update `astro.config.mjs`'s
   `site:` field once a domain is assigned and push again.
+
+- 2026-06-09 — Pivot from the original "design a brand new identity later"
+  plan: instead of a from-scratch system, aoblog adopts `ao`'s existing
+  `DESIGN.md` (Fraunces/Instrument Sans/JetBrains Mono, ink/paper/red-accent
+  tokens, italic-accent emphasis, mono nav-link underline), modified where
+  appropriate — the bespoke widget CSS (iteration cards, stage grids, shadcn
+  aliases) from `ao` is left out since aoblog has no React islands that need
+  it. The "undesigned" baseline from Phase 1 is now the documented "before"
+  in the DESIGN.md post rather than a long-lived state.
+
+- 2026-06-09 — Phase 2 done: header now carries the `aologo.svg` mark (new
+  `Logo.astro`, inlined with `currentColor`), `global.css` carries the
+  Fraunces/Instrument Sans/JetBrains Mono stack plus ink/paper/accent tokens
+  and the italic-accent emphasis system, nav links use the mono
+  underline-on-active style, and page/post H1s are set in Fraunces (the
+  homepage wordmark is `ao*blog*` using the emphasis system). `npm run build`
+  passed clean for all 11 pages on the first try. Wrote a third post on what
+  a `DESIGN.md` buys you, drawing on this exact port as the example.
