@@ -22,13 +22,13 @@ const shorts = (await getCollection("shorts", ({ data }) => !data.draft)).sort(
               <img
                 src={short.data.cover}
                 alt=""
-                class="w-20 h-20 object-cover rounded border border-line"
+                class="w-20 h-20 object-cover rounded border border-border"
               />
             </a>
           )}
           <div>
             <a href={`/shorts/${short.id}/`} class="text-lg font-medium">{short.data.title}</a>
-            <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+            <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <span class="meta-tag">
                 {short.data.status === "published" ? "Published" : "In Development"}
               </span>

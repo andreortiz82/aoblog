@@ -32,7 +32,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
             <a href={`/blog/${post.id}/`} class="font-medium">
               {post.data.title}
             </a>
-            <div class="mt-1 flex items-center gap-2 text-sm text-ink-3">
+            <div class="mt-1 flex items-center gap-2 text-sm text-muted-foreground">
               <FormattedDate date={post.data.pubDate} />
               <span class="meta-tag">{post.data.category}</span>
             </div>

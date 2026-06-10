@@ -83,3 +83,20 @@ schemas, content outlines, design baseline).
   tokens, type roles, emphasis system, logo usage, and an explicit
   "Differences from `ao`" section — as the authoritative reference for
   future visual changes.
+
+- 2026-06-10 — aoblog will use shadcn/ui going forward. Renamed every
+  color token in `global.css`'s `@theme inline` to shadcn naming
+  (`--color-ink` → `--color-foreground`, `--color-paper` → `--color-muted`,
+  `--color-ink-3` → `--color-muted-foreground`, `--color-line` →
+  `--color-border`/`--color-input`, `--color-accent` →
+  `--color-destructive`/`--color-ring`, `--color-accent-soft` →
+  `--color-accent`, plus new `--color-primary`, `--color-secondary`,
+  `--color-card`, `--color-popover`, and a `--radius` scale), kept
+  `--color-ink-2` as the one aoblog-specific addition with no shadcn
+  equivalent, and dropped the unused `--color-line-soft`/`--color-highlight`
+  (selection now reuses `--color-accent`/`--color-destructive`). Updated
+  every `text-ink*`/`bg-paper`/`border-line` Tailwind class across
+  components and pages to match. Rewrote `DESIGN.md` to be self-contained
+  — synced with `ao`'s structure, no "ported from / differences from `ao`"
+  framing — documenting the new token table and a Radius section.
+  `npm run build` passed clean for all 11 pages.

@@ -18,7 +18,7 @@ const { title, description, pubDate, image, backHref, backLabel } = Astro.props;
   <article>
     <a href={backHref} class="text-sm">&larr; {backLabel}</a>
     <h1 class="mt-4 font-serif text-3xl">{title}</h1>
-    <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-ink-3">
+    <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
       {pubDate && <FormattedDate date={pubDate} />}
       <slot name="meta" />
     </div>
